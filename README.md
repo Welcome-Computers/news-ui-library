@@ -1,1 +1,101 @@
 # news-ui-library
+
+
+# create project folder
+mkdir news-ui-library
+cd news-ui-library
+
+# init git + package manager
+git init
+pnpm init -y
+
+
+
+# dev deps for building + types
+pnpm add -D typescript tsup @types/react @types/react-dom dts sass
+# add antd as devDep so you can import components while building
+pnpm add -D antd
+# optionally add eslint, prettier etc.
+
+
+{
+  "name": "@your-org/news-ui",
+  "version": "1.0.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --out-dir dist --clean",
+    "build:watch": "tsup src/index.ts --format cjs,esm --dts --out-dir dist --watch",
+    "prepare": "pnpm build"
+  },
+  "peerDependencies": {
+    "react": ">=17",
+    "react-dom": ">=17",
+    "antd": ">=4"
+  },
+  "devDependencies": {
+    "typescript": "...",
+    "tsup": "...",
+    "sass": "..."
+  }
+}
+
+
+-------------------
+
+
+export * from "./components/NewsCard";
+export * from "./components/CommonAvatar";
+
+
+---------------
+
+export { default as NewsCard } from "./NewsCard";
+export type { NewsCardProps } from "./NewsCard"; // optional: export props
+
+--------------------
+
+import NewsCard from "./NewsCard";
+export default NewsCard;
+
+
+-------------------
+
+pnpm add git+https://github.com/Welcome-Computers/news-ui-library.git
+
+-------------------
+
+git remote remove origin
+git remote add origin git@github.com:Welcome-Computers/news-ui-library.git
+
+
+--------------------
+
+pnpm add https://github.com/Welcome-Computers/news-ui-library.git#main
+
+
+import { NewsCard } from "news-ui-library";
+
+ const carddata = {
+    id: "1",
+    article_code: "ART1001",
+    title: "AI Revolution in Education",
+    slug: "ai-revolution-in-education",
+    article_image: "https://picsum.photos/600/400?random=1",
+    category: ["Technology", "Education"],
+    reporter: {
+      id: "101",
+      name: "Ravi Mehta",
+      profile_pick: "https://i.pravatar.cc/150?img=1",
+    },
+    created_at: "2025-09-01T09:30:00Z",
+    summary:
+      "AI-driven platforms are transforming classrooms with personalised learning. Teachers are now using advanced tools to track student performance in real time, offering customised assignments and adaptive study plans. Experts believe this could redefine how education systems function over the next decade.",
+    is_exclusive: true,
+    tags: ["AI", "Education", "Future"],
+  }
+
+
+<NewsCard type="type-6" item={carddata} />
