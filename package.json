@@ -8,10 +8,12 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --out-dir dist --clean",
+    "build:ts": "tsup src/index.ts --format cjs,esm --dts --out-dir dist --clean",
+    "build:css": "sass src:dist --no-source-map",
+    "build": "pnpm build:ts && pnpm build:css",
     "build:watch": "tsup src/index.ts --format cjs,esm --dts --out-dir dist --watch",
-    "prepare": "pnpm build", 
-    "prepublishOnly": "pnpm build" 
+    "prepare": "pnpm build",
+    "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
     "antd": ">=4",

@@ -75,6 +75,7 @@ pnpm add https://github.com/Welcome-Computers/news-ui-library.git#main
 
 
 import { NewsCard } from "news-ui-library";
+import "news-ui-library/dist/news-ui.css";
 
  const carddata = {
     id: "1",
@@ -107,3 +108,6 @@ git push origin main
 
 
 pnpm add github:Welcome-Computers/news-ui-library
+
+------------------------
+
