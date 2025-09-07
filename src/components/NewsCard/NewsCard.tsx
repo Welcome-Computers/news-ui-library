@@ -1,11 +1,11 @@
 import CommonAvatar from '@components/CommonAvatar/CommonAvatar';
-import { Card, Image, Tag, Typography } from 'antd';
-import Link from 'antd/es/typography/Link';
+import { Card, Image, Tag } from 'antd';
 // import Link from 'next/link';
 import { getSFullName } from 'src/util/helper';
 // import CommonAvatar from './CommonAvatar';
 
-const { Title, Text } = Typography;
+import { Typography } from 'antd';
+const { Title, Link } = Typography;
 
 interface iProps {
 	item: any;

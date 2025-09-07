@@ -1,8 +1,6 @@
-var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -16,14 +14,6 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  // If the importer is in node compatibility mode or this is not an ESM
-  // file that has been converted to a CommonJS file using a Babel-
-  // compatible transform (i.e. "__esModule" has not been set), then set
-  // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-  mod
-));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.ts
@@ -76,7 +66,6 @@ var CommonAvatar_default = CommonAvatar;
 
 // src/components/NewsCard/NewsCard.tsx
 var import_antd2 = require("antd");
-var import_Link = __toESM(require("antd/es/typography/Link"));
 
 // src/util/helper.ts
 var getSFullName = (value) => {
@@ -85,8 +74,9 @@ var getSFullName = (value) => {
 };
 
 // src/components/NewsCard/NewsCard.tsx
+var import_antd3 = require("antd");
 var import_jsx_runtime2 = require("react/jsx-runtime");
-var { Title, Text } = import_antd2.Typography;
+var { Title, Link } = import_antd3.Typography;
 var truncateWords = (text, count) => {
   const words = text.split(" ");
   return words.length > count ? words.slice(0, count).join(" ") + "..." : text;
@@ -397,7 +387,7 @@ var NewsCard = (props) => {
       ] }) })
     }
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: `jg-news-card outer-${type}`, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_Link.default, { href: `/news/${item?.slug}-${item?.id}`, children: type === "type-1" ? renderType1() : type === "type-2" ? renderType2() : type === "type-3" ? renderType3() : type === "type-4" ? renderType4() : type === "type-5" ? renderType5() : type === "type-6" ? renderType6() : type === "type-7" ? renderType7() : type === "type-8" ? renderType8() : type === "type-9" ? renderType9() : type === "type-10" ? renderType10() : type === "type-11" ? renderType11() : type === "type-12" ? renderType12() : type === "type-13" ? renderType13() : type === "type-14" ? renderType14() : type === "type-15" ? renderType15() : defaultType() }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: `jg-news-card outer-${type}`, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Link, { href: `/news/${item?.slug}-${item?.id}`, children: type === "type-1" ? renderType1() : type === "type-2" ? renderType2() : type === "type-3" ? renderType3() : type === "type-4" ? renderType4() : type === "type-5" ? renderType5() : type === "type-6" ? renderType6() : type === "type-7" ? renderType7() : type === "type-8" ? renderType8() : type === "type-9" ? renderType9() : type === "type-10" ? renderType10() : type === "type-11" ? renderType11() : type === "type-12" ? renderType12() : type === "type-13" ? renderType13() : type === "type-14" ? renderType14() : type === "type-15" ? renderType15() : defaultType() }) });
 };
 var NewsCard_default = NewsCard;
 {

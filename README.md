@@ -105,3 +105,10 @@ import { NewsCard } from "news-ui-library";
 git commit -m "build: added dist for ready-to-use package"
 
 git push origin main
+
+-----------------
+
+pnpm build
+git add .
+git commit -m "build: added dist for ready-to-use package"
+git push origin main

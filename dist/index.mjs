@@ -39,8 +39,7 @@ var CommonAvatar = ({
 var CommonAvatar_default = CommonAvatar;
 
 // src/components/NewsCard/NewsCard.tsx
-import { Card, Image as Image2, Tag, Typography } from "antd";
-import Link from "antd/es/typography/Link";
+import { Card, Image as Image2, Tag } from "antd";
 
 // src/util/helper.ts
 var getSFullName = (value) => {
@@ -49,8 +48,9 @@ var getSFullName = (value) => {
 };
 
 // src/components/NewsCard/NewsCard.tsx
+import { Typography } from "antd";
 import { jsx as jsx2, jsxs } from "react/jsx-runtime";
-var { Title, Text } = Typography;
+var { Title, Link } = Typography;
 var truncateWords = (text, count) => {
   const words = text.split(" ");
   return words.length > count ? words.slice(0, count).join(" ") + "..." : text;
