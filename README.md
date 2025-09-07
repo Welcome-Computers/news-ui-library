@@ -63,8 +63,6 @@ export default NewsCard;
 
 -------------------
 
-pnpm add git+https://github.com/Welcome-Computers/news-ui-library.git
-
 -------------------
 
 git remote remove origin
@@ -102,13 +100,10 @@ import { NewsCard } from "news-ui-library";
 
 --------------------
 
-git commit -m "build: added dist for ready-to-use package"
-
-git push origin main
-
------------------
-
 pnpm build
 git add .
 git commit -m "build: added dist for ready-to-use package"
 git push origin main
+
+
+pnpm add github:Welcome-Computers/news-ui-library

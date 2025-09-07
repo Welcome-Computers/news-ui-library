@@ -1,11 +1,9 @@
 import CommonAvatar from '@components/CommonAvatar/CommonAvatar';
 import { Card, Image, Tag } from 'antd';
-// import Link from 'next/link';
 import { getSFullName } from 'src/util/helper';
-// import CommonAvatar from './CommonAvatar';
 
 import { Typography } from 'antd';
-const { Title, Link } = Typography;
+const { Title } = Typography;
 
 interface iProps {
 	item: any;
@@ -343,7 +341,7 @@ const NewsCard = (props: iProps) => {
 	return (
 		<div className={`jg-news-card outer-${type}`}>
 			{/* <h1>{type}</h1> */}
-			<Link href={`/news/${item?.slug}-${item?.id}`}>
+			<a href={`/news/${item?.slug}-${item?.id}`}>
 				{type === 'type-1' ? renderType1() :
 					type === 'type-2' ? renderType2() :
 						type === 'type-3' ? renderType3() :
@@ -360,7 +358,7 @@ const NewsCard = (props: iProps) => {
 																	type === 'type-14' ? renderType14() :
 																		type === 'type-15' ? renderType15() :
 																			defaultType()}
-			</Link>
+			</a>
 		</div>
 	);
 }
