@@ -41,10 +41,338 @@ var CommonAvatar_default = CommonAvatar;
 // src/components/NewsCard/NewsCard.tsx
 import { Card, Image as Image2, Tag, Typography } from "antd";
 import Link from "antd/es/typography/Link";
+
+// src/util/helper.ts
+var getSFullName = (value) => {
+  const fullname = [value?.first_name, value?.second_name].filter(Boolean).join(" ");
+  return fullname;
+};
+
+// src/components/NewsCard/NewsCard.tsx
 import { jsx as jsx2, jsxs } from "react/jsx-runtime";
 var { Title, Text } = Typography;
+var truncateWords = (text, count) => {
+  const words = text.split(" ");
+  return words.length > count ? words.slice(0, count).join(" ") + "..." : text;
+};
+var NewsCard = (props) => {
+  const { item, type = "default" } = props || {};
+  const defaultType = () => /* @__PURE__ */ jsxs(
+    Card,
+    {
+      cover: /* @__PURE__ */ jsx2(Image2, { height: 250, src: item?.article_image, alt: item?.title, preview: false }),
+      className: `jg-news-card__image-wrapper ${type}`,
+      children: [
+        /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+          item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+          item?.title
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "jg-news-card__reporter", children: [
+          /* @__PURE__ */ jsx2(
+            CommonAvatar_default,
+            {
+              size: 30,
+              src: item?.reporter?.profile_pick,
+              name: getSFullName(item?.reporter)
+            }
+          ),
+          /* @__PURE__ */ jsx2("strong", { className: "jg-news-card__reporter--name", children: getSFullName(item?.reporter) }),
+          /* @__PURE__ */ jsxs("span", { className: "jg-news-card__date", children: [
+            "\u2013 ",
+            item?.news_date
+          ] })
+        ] })
+      ]
+    }
+  );
+  const renderType1 = () => /* @__PURE__ */ jsxs("div", { className: `jg-news-card__image-wrapper ${type}`, children: [
+    /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+      item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+      item?.title
+    ] }),
+    /* @__PURE__ */ jsx2("div", { className: "jg-news-card__reporter", children: /* @__PURE__ */ jsx2("span", { className: "jg-news-card__date", children: item?.news_date }) })
+  ] });
+  const renderType2 = () => /* @__PURE__ */ jsx2(
+    Card,
+    {
+      cover: /* @__PURE__ */ jsx2(Image2, { height: 200, src: item?.article_image, alt: item?.title, preview: false, className: "news-cover" }),
+      className: `jg-news-card__image-wrapper ${type}`,
+      children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__section", children: [
+        /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+          item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+          item?.title
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "jg-news-card__reporter", children: [
+          /* @__PURE__ */ jsx2(
+            CommonAvatar_default,
+            {
+              size: 30,
+              src: item?.reporter?.profile_pick,
+              name: getSFullName(item?.reporter)
+            }
+          ),
+          /* @__PURE__ */ jsx2("strong", { className: "jg-news-card__reporter--name", children: getSFullName(item?.reporter) }),
+          /* @__PURE__ */ jsxs("span", { className: "jg-news-card__date", children: [
+            "\u2013 ",
+            item?.news_date
+          ] })
+        ] })
+      ] })
+    }
+  );
+  const renderType3 = () => /* @__PURE__ */ jsx2(
+    Card,
+    {
+      cover: /* @__PURE__ */ jsx2(Image2, { height: 100, src: item?.article_image, alt: item?.title, preview: false, className: "news-cover" }),
+      className: `jg-news-card__image-wrapper ${type}`,
+      children: /* @__PURE__ */ jsx2("div", { className: "jg-news-card__section right-section", children: /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+        item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+        item?.title
+      ] }) })
+    }
+  );
+  const renderType4 = () => /* @__PURE__ */ jsxs("div", { className: `jg-news-card__image-wrapper ${type}`, children: [
+    /* @__PURE__ */ jsx2("div", { className: "jg-news-card__section left-section", children: /* @__PURE__ */ jsx2(Image2, { width: 100, height: 100, src: item?.article_image, alt: item?.title, preview: false, className: "news-cover" }) }),
+    /* @__PURE__ */ jsxs("div", { className: "jg-news-card__section right-section", children: [
+      /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+        item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+        item?.title
+      ] }),
+      /* @__PURE__ */ jsx2(Title, { className: "jg-news-card__title", level: 5, children: item?.articleCategories?.length > 0 && /* @__PURE__ */ jsxs("div", { className: "jg-news-card__category", children: [
+        item?.articleCategories?.slice(0, 2)?.map((el) => {
+          return /* @__PURE__ */ jsx2(Tag, { color: "red", children: el?.category?.name }, el?.category?.id);
+        }),
+        item?.articleCategories.length > 2 && /* @__PURE__ */ jsxs(Tag, { color: "blue", children: [
+          "+",
+          item.articleCategories.length - 3,
+          " more"
+        ] })
+      ] }) })
+    ] })
+  ] });
+  const renderType5 = () => /* @__PURE__ */ jsx2(
+    Card,
+    {
+      cover: /* @__PURE__ */ jsx2(Image2, { height: 600, src: item?.article_image, alt: item?.title, preview: false }),
+      style: {
+        backgroundImage: `url(${item?.article_image})`
+      },
+      className: `jg-news-card__image-wrapper ${type}`,
+      children: /* @__PURE__ */ jsx2("div", { className: "jg-news-card__content", children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__content--inner", children: [
+        /* @__PURE__ */ jsx2(Title, { className: "jg-news-card__category-box", level: 5, children: item?.articleCategories?.length > 0 && /* @__PURE__ */ jsxs("div", { className: "jg-news-card__category", children: [
+          item?.articleCategories?.slice(0, 2)?.map((el) => {
+            return /* @__PURE__ */ jsx2(Tag, { color: "red", children: el?.category?.name }, el?.category?.id);
+          }),
+          item?.articleCategories.length > 2 && /* @__PURE__ */ jsxs(Tag, { color: "blue", children: [
+            "+",
+            item.articleCategories.length - 3,
+            " more"
+          ] })
+        ] }) }),
+        /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+          item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+          item?.title
+        ] }),
+        /* @__PURE__ */ jsx2("p", { className: "jg-news-card__summary", children: truncateWords(item?.summary || "", 6) }),
+        /* @__PURE__ */ jsxs("div", { className: "jg-news-card__reporter", children: [
+          /* @__PURE__ */ jsx2(
+            CommonAvatar_default,
+            {
+              size: 40,
+              src: item?.reporter?.profile_pick,
+              name: getSFullName(item?.reporter)
+            }
+          ),
+          /* @__PURE__ */ jsx2("strong", { className: "jg-news-card__reporter--name", children: getSFullName(item?.reporter) }),
+          /* @__PURE__ */ jsxs("span", { className: "jg-news-card__date", children: [
+            "\u2013 ",
+            item?.news_date
+          ] })
+        ] })
+      ] }) })
+    }
+  );
+  const renderType6 = () => /* @__PURE__ */ jsx2(
+    Card,
+    {
+      cover: /* @__PURE__ */ jsx2(
+        "div",
+        {
+          className: "jg-news-card__image-box",
+          style: { backgroundImage: `url(${item?.article_image})` }
+        }
+      ),
+      className: `jg-news-card__image-wrapper ${type}`,
+      children: /* @__PURE__ */ jsx2("div", { className: "jg-news-card__content", children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__content--inner", children: [
+        /* @__PURE__ */ jsx2(Title, { className: "jg-news-card__category-box", level: 5, children: item?.articleCategories?.length > 0 && /* @__PURE__ */ jsxs("div", { className: "jg-news-card__category", children: [
+          item?.articleCategories?.slice(0, 2)?.map((el) => {
+            return /* @__PURE__ */ jsx2(Tag, { color: "red", children: el?.category?.name }, el?.category?.id);
+          }),
+          item?.articleCategories.length > 2 && /* @__PURE__ */ jsxs(Tag, { color: "blue", children: [
+            "+",
+            item.articleCategories.length - 3,
+            " more"
+          ] })
+        ] }) }),
+        /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+          item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+          item?.title
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "jg-news-card__reporter", children: [
+          /* @__PURE__ */ jsx2(
+            CommonAvatar_default,
+            {
+              size: 40,
+              src: item?.reporter?.profile_pick,
+              name: getSFullName(item?.reporter)
+            }
+          ),
+          /* @__PURE__ */ jsx2("strong", { className: "jg-news-card__reporter--name", children: getSFullName(item?.reporter) }),
+          /* @__PURE__ */ jsxs("span", { className: "jg-news-card__date", children: [
+            "\u2013 ",
+            item?.news_date
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx2("p", { className: "jg-news-card__summary", children: truncateWords(item?.summary || "", 6) })
+      ] }) })
+    }
+  );
+  const renderType7 = () => /* @__PURE__ */ jsx2("div", { className: `jg-news-card__image-wrapper ${type}`, children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__content", children: [
+    /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+      item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+      item?.title
+    ] }),
+    /* @__PURE__ */ jsx2("div", { className: "jg-news-card__reporter", children: /* @__PURE__ */ jsx2("span", { className: "jg-news-card__date", children: item?.news_date }) })
+  ] }) });
+  const renderType8 = () => /* @__PURE__ */ jsx2("div", { className: `jg-news-card__image-wrapper ${type}`, children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__content", children: [
+    item?.articleCategories?.length > 0 && /* @__PURE__ */ jsx2(Title, { className: "jg-news-card__category", level: 5, children: item?.articleCategories?.map((el, index) => {
+      return /* @__PURE__ */ jsx2("span", { children: el?.category?.name }, index);
+    }) }),
+    /* @__PURE__ */ jsx2("h3", { className: "jg-news-card__title", children: item?.title }),
+    /* @__PURE__ */ jsx2("p", { className: "jg-news-card__summary", children: truncateWords(item?.summary || "", 6) }),
+    /* @__PURE__ */ jsx2("div", { className: "jg-news-card__reporter", children: /* @__PURE__ */ jsx2("span", { className: "jg-news-card__date", children: item?.news_date }) })
+  ] }) });
+  const renderType9 = () => /* @__PURE__ */ jsx2(
+    Card,
+    {
+      cover: /* @__PURE__ */ jsx2(Image2, { src: item?.article_image, alt: item?.title, preview: false }),
+      className: `jg-news-card__image-wrapper ${type}`,
+      children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__content", children: [
+        item?.articleCategories?.length > 0 && /* @__PURE__ */ jsx2(Title, { className: "jg-news-card__category", level: 5, children: item?.articleCategories?.map((el, index) => {
+          return /* @__PURE__ */ jsx2("span", { children: el?.category?.name }, index);
+        }) }),
+        /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+          item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+          item?.title
+        ] })
+      ] })
+    }
+  );
+  const renderType10 = () => /* @__PURE__ */ jsx2(
+    Card,
+    {
+      cover: /* @__PURE__ */ jsx2(Image2, { height: 200, src: item?.article_image, alt: item?.title, preview: false }),
+      className: `jg-news-card__image-wrapper ${type}`,
+      children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__content", children: [
+        item?.articleCategories?.length > 0 && /* @__PURE__ */ jsx2(Title, { className: "jg-news-card__category", level: 5, children: item?.articleCategories?.map((el, index) => {
+          return /* @__PURE__ */ jsx2("span", { children: el?.category?.name }, index);
+        }) }),
+        /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+          item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+          item?.title
+        ] })
+      ] })
+    }
+  );
+  const renderType11 = () => /* @__PURE__ */ jsx2("div", { className: `jg-news-card__image-wrapper ${type}`, children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__section right-section", children: [
+    /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+      item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+      item?.title
+    ] }),
+    /* @__PURE__ */ jsx2("div", { className: "jg-news-card__reporter", children: /* @__PURE__ */ jsxs("span", { className: "jg-news-card__date", children: [
+      "\u2013 ",
+      item?.news_date
+    ] }) })
+  ] }) });
+  const renderType12 = () => /* @__PURE__ */ jsxs(
+    Card,
+    {
+      cover: /* @__PURE__ */ jsx2(Image2, { height: 550, src: item?.article_image, alt: item?.title, preview: false }),
+      style: { backgroundImage: `url(${item?.article_image})` },
+      className: `jg-news-card__image-wrapper ${type}`,
+      children: [
+        /* @__PURE__ */ jsx2("div", { className: "jg-news-card__main--category", children: /* @__PURE__ */ jsx2(Tag, { color: "#000", children: item?.articleCategories?.[0].category?.name }) }),
+        /* @__PURE__ */ jsxs("div", { className: "jg-news-card__section", children: [
+          /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+            item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+            item?.title
+          ] }),
+          /* @__PURE__ */ jsx2("div", { className: "jg-news-card__reporter", children: /* @__PURE__ */ jsx2("span", { className: "jg-news-card__date", children: item?.news_date }) })
+        ] })
+      ]
+    }
+  );
+  const renderType13 = () => /* @__PURE__ */ jsx2(
+    Card,
+    {
+      cover: /* @__PURE__ */ jsx2(Image2, { height: 300, src: item?.article_image, alt: item?.title, preview: false }),
+      className: `jg-news-card__image-wrapper ${type}`,
+      children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__section", children: [
+        /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+          item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+          item?.title
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "jg-news-card__reporter", children: [
+          /* @__PURE__ */ jsx2(
+            CommonAvatar_default,
+            {
+              size: 30,
+              src: item?.reporter?.profile_pick,
+              name: getSFullName(item?.reporter)
+            }
+          ),
+          /* @__PURE__ */ jsx2("strong", { className: "jg-news-card__reporter--name", children: getSFullName(item?.reporter) }),
+          /* @__PURE__ */ jsxs("span", { className: "jg-news-card__date", children: [
+            "\u2013 ",
+            item?.news_date
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx2("p", { className: "jg-news-card__summary", children: truncateWords(item?.summary || "", 6) })
+      ] })
+    }
+  );
+  const renderType14 = () => /* @__PURE__ */ jsx2("div", { className: `jg-news-card__image-wrapper ${type}`, children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__content", children: [
+    /* @__PURE__ */ jsx2("h3", { className: "jg-news-card__title", children: item?.title }),
+    /* @__PURE__ */ jsxs("div", { className: "jg-news-card__reporter", children: [
+      item?.articleCategories?.length > 0 && /* @__PURE__ */ jsx2("div", { className: "jg-news-card__category", children: item?.articleCategories?.map((el) => {
+        return /* @__PURE__ */ jsx2(Tag, { color: "red", children: el?.category?.name }, el?.category?.id);
+      }) }),
+      /* @__PURE__ */ jsx2("span", { className: "jg-news-card__date", children: item?.news_date })
+    ] })
+  ] }) });
+  const renderType15 = () => /* @__PURE__ */ jsx2(
+    Card,
+    {
+      cover: /* @__PURE__ */ jsx2(Image2, { height: 200, src: item?.article_image, alt: item?.title, preview: false }),
+      className: `jg-news-card__image-wrapper ${type}`,
+      children: /* @__PURE__ */ jsx2("div", { className: "jg-news-card__content", children: /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
+        item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
+        item?.title
+      ] }) })
+    }
+  );
+  return /* @__PURE__ */ jsx2("div", { className: `jg-news-card outer-${type}`, children: /* @__PURE__ */ jsx2(Link, { href: `/news/${item?.slug}-${item?.id}`, children: type === "type-1" ? renderType1() : type === "type-2" ? renderType2() : type === "type-3" ? renderType3() : type === "type-4" ? renderType4() : type === "type-5" ? renderType5() : type === "type-6" ? renderType6() : type === "type-7" ? renderType7() : type === "type-8" ? renderType8() : type === "type-9" ? renderType9() : type === "type-10" ? renderType10() : type === "type-11" ? renderType11() : type === "type-12" ? renderType12() : type === "type-13" ? renderType13() : type === "type-14" ? renderType14() : type === "type-15" ? renderType15() : defaultType() }) });
+};
+var NewsCard_default = NewsCard;
 {
 }
+
+// src/components/NewsCard/index.ts
+var NewsCard_default2 = NewsCard_default;
+
+// src/components/CommonAvatar/index.ts
+var CommonAvatar_default2 = CommonAvatar_default;
 export {
-  CommonAvatar_default as CommonAvatar
+  CommonAvatar_default2 as CommonAvatar,
+  NewsCard_default2 as NewsCard
 };

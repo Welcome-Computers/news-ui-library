@@ -99,3 +99,9 @@ import { NewsCard } from "news-ui-library";
 
 
 <NewsCard type="type-6" item={carddata} />
+
+--------------------
+
+git commit -m "build: added dist for ready-to-use package"
+
+git push origin main

@@ -1,1 +1,3 @@
-export { default as CommonAvatar } from "./CommonAvatar";
+import CommonAvatar from "./CommonAvatar";
+export default CommonAvatar;
+
