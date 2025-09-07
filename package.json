@@ -1,0 +1,32 @@
+{
+  "name": "@your-org/news-ui",
+  "version": "1.0.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --out-dir dist --clean",
+    "build:watch": "tsup src/index.ts --format cjs,esm --dts --out-dir dist --watch",
+    "prepare": "pnpm build"
+  },
+  "peerDependencies": {
+    "antd": ">=4",
+    "react": ">=17",
+    "react-dom": ">=17"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "antd": "^5.27.3",
+    "dts": "^0.1.1",
+    "sass": "^1.92.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "news-ui-library.git": "github:Welcome-Computers/news-ui-library"
+  }
+}
