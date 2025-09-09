@@ -320,24 +320,24 @@ var NewsCard = (props) => {
       item?.news_date
     ] }) })
   ] }) });
-  const renderType12 = () => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-    import_antd2.Card,
-    {
-      cover: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Image, { height: 550, src: item?.article_image, alt: item?.title, preview: false }),
-      style: { backgroundImage: `url(${item?.article_image})` },
-      className: `jg-news-card__image-wrapper ${type}`,
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "jg-news-card__main--category", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Tag, { color: "#000", children: item?.articleCategories?.[0].category?.name }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "jg-news-card__section", children: [
+  const renderType12 = () => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "jg-news-card-cover", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      import_antd2.Card,
+      {
+        cover: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Image, { height: 550, src: item?.article_image, alt: item?.title, preview: false }),
+        style: { backgroundImage: `url(${item?.article_image})` },
+        className: `jg-news-card__image-wrapper ${type}`,
+        children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "jg-news-card__section", children: [
           /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("h3", { className: "jg-news-card__title", children: [
             item?.is_exclusive ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Tag, { color: "#cf1322", children: "Exclusive" }) : null,
             item?.title
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "jg-news-card__reporter", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "jg-news-card__date", children: item?.news_date }) })
         ] })
-      ]
-    }
-  );
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "jg-news-card__main--category", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Tag, { color: "#000", children: item?.articleCategories?.[0].category?.name }) })
+  ] });
   const renderType13 = () => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
     import_antd2.Card,
     {

@@ -1,0 +1,118 @@
+// --------------------------------------------- //
+// --------------------------------------------- //
+// ----------------	RESPONSIVE ----------------- //
+// --------------------------------------------- //
+// --------------------------------------------- //
+
+ 
+.jg-news-card__image-wrapper.type-10 .jg-news-card__title,
+.jg-news-card__title {
+  font-size: 16px;
+}
+ 
+
+.news-cover img {
+  object-fit: cover;
+  /* crop karega, stretch nahi hoga */
+  object-position: center;
+  width: 100%;
+  height: 100px;
+  /* AntD ka height bhi yahi set karega */
+}
+
+.jg-news-card__image-wrapper {
+  .news-cover {
+    height: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 100px;
+    /* fix height */
+    object-fit: cover;
+    /* crop karega, stretch nahi */
+    object-position: center;
+    /* center me crop */
+  }
+}
+ 
+.jg-news-card__image-wrapper.type-6 .ant-card-body {
+  padding: 10px;
+}
+ 
+/* Small devices (sm: ≥576px) */
+@media (min-width: 576px) {}
+
+/* Medium devices (md: ≥768px) */
+@media (min-width: 768px) {
+ 
+  .jg-news-card__title {
+    font-size: 18px;
+  }
+ 
+
+  .jg-news-card__image-wrapper.type-3 {
+    gap: 10px;
+  }
+
+  .jg-news-card__image-wrapper.type-3 .jg-news-card__title {
+    font-size: 14px;
+  }
+
+  .jg-news-card__image-wrapper.type-7 .jg-news-card__title {
+    font-size: 14px;
+  }
+
+  .jg-news-card__image-wrapper.type-8 .jg-news-card__title {
+    font-size: 14px;
+  }
+
+  .jg-news-card__image-wrapper.type-9 .jg-news-card__title {
+    font-size: 16px;
+  }
+
+  .jg-news-card__image-wrapper.type-13 {
+    flex-direction: row;
+  }
+
+  .jg-post__rightContent--top {
+    padding-top: 0;
+  }
+
+  .jg-news-card__image-wrapper.type-13 .ant-card-cover {
+    flex: 3;
+  }
+
+  .jg-news-card__image-wrapper.type-10 .jg-news-card__category {
+    gap: 7px;
+    font-size: 11px;
+  }
+
+  .jg-news-card__category span {
+    margin: 0;
+  }
+
+  .jg-news-card__image-wrapper.type-10 .jg-news-card__title {
+    font-size: 16px;
+  }
+
+  .jg-news-card__image-wrapper.type-2 {
+    flex-direction: row;
+  }
+ 
+}
+
+/* Large devices (lg: ≥992px) */
+@media (min-width: 992px) {
+ 
+}
+
+/* Extra large devices (xl: ≥1200px) */
+@media (min-width: 1200px) {
+ 
+}
+
+/* Extra extra large devices (xxl: ≥1600px) */
+@media (min-width: 1600px) {
+ 
+}

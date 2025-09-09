@@ -111,3 +111,55 @@ pnpm add github:Welcome-Computers/news-ui-library
 
 ------------------------
 
+
+
+-------------------------
+news-ui-library/
+├── src/               # Library ka actual source code (components, styles)
+├── dist/              # Build output (tsup + sass se generate hota hai)
+├── playground/        # Local React test app
+│   ├── src/
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── index.html
+│   ├── tsconfig.json
+│   └── package.json
+├── package.json       # Library ka package.json
+└── tsconfig.json      # Library ka tsconfig
+
+
+mkdir playground
+cd playground
+pnpm init
+
+-----------------
+pnpm add react react-dom antd
+pnpm add -D typescript @types/react @types/react-dom vite
+
+------------------
+
+playground/vite.config.ts
+--------------
+playground/package.json
+playground/tsconfig.json
+----------
+
+playground/index.html
+--------------
+playground/src/main.tsx
+--------------
+playground/src/App.tsx
+--------------
+cd playground
+pnpm vite
+--------------
+
+
+import { NewsCard } from "news-ui-library";
+import "news-ui-library/dist/components/NewsCard.css";
+
+-----------------
+{
+  "name": "news-ui-library",
+  "version": "1.0.1"
+}

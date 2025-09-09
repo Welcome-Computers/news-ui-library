@@ -294,24 +294,24 @@ var NewsCard = (props) => {
       item?.news_date
     ] }) })
   ] }) });
-  const renderType12 = () => /* @__PURE__ */ jsxs(
-    Card,
-    {
-      cover: /* @__PURE__ */ jsx2(Image2, { height: 550, src: item?.article_image, alt: item?.title, preview: false }),
-      style: { backgroundImage: `url(${item?.article_image})` },
-      className: `jg-news-card__image-wrapper ${type}`,
-      children: [
-        /* @__PURE__ */ jsx2("div", { className: "jg-news-card__main--category", children: /* @__PURE__ */ jsx2(Tag, { color: "#000", children: item?.articleCategories?.[0].category?.name }) }),
-        /* @__PURE__ */ jsxs("div", { className: "jg-news-card__section", children: [
+  const renderType12 = () => /* @__PURE__ */ jsxs("div", { className: "jg-news-card-cover", children: [
+    /* @__PURE__ */ jsx2(
+      Card,
+      {
+        cover: /* @__PURE__ */ jsx2(Image2, { height: 550, src: item?.article_image, alt: item?.title, preview: false }),
+        style: { backgroundImage: `url(${item?.article_image})` },
+        className: `jg-news-card__image-wrapper ${type}`,
+        children: /* @__PURE__ */ jsxs("div", { className: "jg-news-card__section", children: [
           /* @__PURE__ */ jsxs("h3", { className: "jg-news-card__title", children: [
             item?.is_exclusive ? /* @__PURE__ */ jsx2(Tag, { color: "#cf1322", children: "Exclusive" }) : null,
             item?.title
           ] }),
           /* @__PURE__ */ jsx2("div", { className: "jg-news-card__reporter", children: /* @__PURE__ */ jsx2("span", { className: "jg-news-card__date", children: item?.news_date }) })
         ] })
-      ]
-    }
-  );
+      }
+    ),
+    /* @__PURE__ */ jsx2("div", { className: "jg-news-card__main--category", children: /* @__PURE__ */ jsx2(Tag, { color: "#000", children: item?.articleCategories?.[0].category?.name }) })
+  ] });
   const renderType13 = () => /* @__PURE__ */ jsx2(
     Card,
     {

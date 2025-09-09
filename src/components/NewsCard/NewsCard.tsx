@@ -1,6 +1,6 @@
 import CommonAvatar from '@components/CommonAvatar/CommonAvatar';
 import { Card, Image, Tag } from 'antd';
-import { getSFullName } from 'src/util/helper';
+import { getSFullName } from "@util/helper";
 
 import { Typography } from 'antd';
 const { Title } = Typography;
@@ -22,15 +22,7 @@ const NewsCard = (props: iProps) => {
 		<Card
 			cover={<Image height={250} src={item?.article_image} alt={item?.title} preview={false} />}
 			className={`jg-news-card__image-wrapper ${type}`}>
-			{/* <Title className='jg-news-card__title' level={5}>
-				{item?.articleCategories?.length > 0 && (
-					<div className='jg-news-card__category'>
-						{item?.articleCategories?.map((el: any) => {
-							return <Tag color="red" key={el?.category?.id}>{el?.category?.name}</Tag>
-						})}
-					</div>
-				)}
-			</Title> */}
+
 			<h3 className="jg-news-card__title">{item?.is_exclusive ? <Tag color='#cf1322'>Exclusive</Tag> : null}{item?.title}</h3>
 			<div className="jg-news-card__reporter">
 				<CommonAvatar
@@ -270,21 +262,23 @@ const NewsCard = (props: iProps) => {
 	);
 
 	const renderType12 = () => (
-		<Card
-			cover={<Image height={550} src={item?.article_image} alt={item?.title} preview={false} />}
-			style={{ backgroundImage: `url(${item?.article_image})` }}
-			className={`jg-news-card__image-wrapper ${type}`}>
+		<div className='jg-news-card-cover'>
+			<Card
+				cover={<Image height={550} src={item?.article_image} alt={item?.title} preview={false} />}
+				style={{ backgroundImage: `url(${item?.article_image})` }}
+				className={`jg-news-card__image-wrapper ${type}`}>
+
+				<div className="jg-news-card__section">
+					<h3 className="jg-news-card__title">{item?.is_exclusive ? <Tag color='#cf1322'>Exclusive</Tag> : null}{item?.title}</h3>
+					<div className="jg-news-card__reporter">
+						<span className="jg-news-card__date">{item?.news_date}</span>
+					</div>
+				</div>
+			</Card>
 			<div className="jg-news-card__main--category">
 				<Tag color="#000">{item?.articleCategories?.[0].category?.name}</Tag>
 			</div>
-
-			<div className="jg-news-card__section">
-				<h3 className="jg-news-card__title">{item?.is_exclusive ? <Tag color='#cf1322'>Exclusive</Tag> : null}{item?.title}</h3>
-				<div className="jg-news-card__reporter">
-					<span className="jg-news-card__date">{item?.news_date}</span>
-				</div>
-			</div>
-		</Card>
+		</div>
 	);
 
 	const renderType13 = () => (
@@ -337,9 +331,8 @@ const NewsCard = (props: iProps) => {
 	);
 
 
-
 	return (
-		<div className={`jg-news-card outer-${type}`}>
+		<div className={`jg-news-card outer-${type} ${type}`}>
 			{/* <h1>{type}</h1> */}
 			<a href={`/news/${item?.slug}-${item?.id}`}>
 				{type === 'type-1' ? renderType1() :
