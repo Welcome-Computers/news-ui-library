@@ -387,7 +387,7 @@ var NewsCard = (props) => {
       ] }) })
     }
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: `jg-news-card outer-${type}`, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", { href: `/news/${item?.slug}-${item?.id}`, children: type === "type-1" ? renderType1() : type === "type-2" ? renderType2() : type === "type-3" ? renderType3() : type === "type-4" ? renderType4() : type === "type-5" ? renderType5() : type === "type-6" ? renderType6() : type === "type-7" ? renderType7() : type === "type-8" ? renderType8() : type === "type-9" ? renderType9() : type === "type-10" ? renderType10() : type === "type-11" ? renderType11() : type === "type-12" ? renderType12() : type === "type-13" ? renderType13() : type === "type-14" ? renderType14() : type === "type-15" ? renderType15() : defaultType() }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: `jg-news-card outer-${type} ${type}`, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", { href: `/news/${item?.slug}-${item?.id}`, children: type === "type-1" ? renderType1() : type === "type-2" ? renderType2() : type === "type-3" ? renderType3() : type === "type-4" ? renderType4() : type === "type-5" ? renderType5() : type === "type-6" ? renderType6() : type === "type-7" ? renderType7() : type === "type-8" ? renderType8() : type === "type-9" ? renderType9() : type === "type-10" ? renderType10() : type === "type-11" ? renderType11() : type === "type-12" ? renderType12() : type === "type-13" ? renderType13() : type === "type-14" ? renderType14() : type === "type-15" ? renderType15() : defaultType() }) });
 };
 var NewsCard_default = NewsCard;
 {
