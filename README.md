@@ -100,8 +100,9 @@ import "news-ui-library/dist/news-ui.css";
 <NewsCard type="type-6" item={carddata} />
 
 --------------------
+PS D:\Development_Welcome\JaipurGramin\news-ui-library>
 
-pnpm build
+pnpm run build
 git add .
 git commit -m "build: added dist for ready-to-use package"
 git push origin main
