@@ -20,7 +20,8 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   CommonAvatar: () => CommonAvatar_default2,
-  NewsCard: () => NewsCard_default2
+  NewsCard: () => NewsCard_default2,
+  SquareLoader: () => SquareLoader_default
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -398,8 +399,16 @@ var NewsCard_default2 = NewsCard_default;
 
 // src/components/CommonAvatar/index.ts
 var CommonAvatar_default2 = CommonAvatar_default;
+
+// src/components/SquareLoader/index.tsx
+var import_jsx_runtime3 = require("react/jsx-runtime");
+var SquareLoader = () => {
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "loader-wrapper", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "loader-grid", children: Array.from({ length: 9 }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: `square square-${i + 1}` }, i)) }) });
+};
+var SquareLoader_default = SquareLoader;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   CommonAvatar,
-  NewsCard
+  NewsCard,
+  SquareLoader
 });

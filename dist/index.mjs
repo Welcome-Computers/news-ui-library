@@ -372,7 +372,15 @@ var NewsCard_default2 = NewsCard_default;
 
 // src/components/CommonAvatar/index.ts
 var CommonAvatar_default2 = CommonAvatar_default;
+
+// src/components/SquareLoader/index.tsx
+import { jsx as jsx3 } from "react/jsx-runtime";
+var SquareLoader = () => {
+  return /* @__PURE__ */ jsx3("div", { className: "loader-wrapper", children: /* @__PURE__ */ jsx3("div", { className: "loader-grid", children: Array.from({ length: 9 }).map((_, i) => /* @__PURE__ */ jsx3("div", { className: `square square-${i + 1}` }, i)) }) });
+};
+var SquareLoader_default = SquareLoader;
 export {
   CommonAvatar_default2 as CommonAvatar,
-  NewsCard_default2 as NewsCard
+  NewsCard_default2 as NewsCard,
+  SquareLoader_default as SquareLoader
 };

@@ -253,6 +253,7 @@
   color: red;
   font-size: 14px;
   text-transform: uppercase;
+  gap: 10px;
 }
 .jg-news-card__image-wrapper.type-8 .jg-news-card__date {
   color: #a1a1a1;

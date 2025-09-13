@@ -16,4 +16,6 @@ interface CommonAvatarProps {
 }
 declare const CommonAvatar: React.FC<CommonAvatarProps>;
 
-export { CommonAvatar, NewsCard };
+declare const SquareLoader: React.FC;
+
+export { CommonAvatar, NewsCard, SquareLoader };

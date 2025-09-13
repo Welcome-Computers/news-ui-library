@@ -164,3 +164,26 @@ import "news-ui-library/dist/components/NewsCard.css";
   "name": "news-ui-library",
   "version": "1.0.1"
 }
+
+
+---------------------------
+for > github making changes
+
+git branch
+
+git add .
+
+git commit -m "fix: updated button styles"  
+
+git push origin main
+
+--------------------------------
+for > package to npm
+
+pnpm build
+
+npm version patch -m "fix: improved logo fallback"
+
+git push origin main --tags
+
+npm publish --access public
