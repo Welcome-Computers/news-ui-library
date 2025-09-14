@@ -21,7 +21,8 @@ var index_exports = {};
 __export(index_exports, {
   CommonAvatar: () => CommonAvatar_default2,
   NewsCard: () => NewsCard_default2,
-  SquareLoader: () => SquareLoader_default
+  SquareLoader: () => SquareLoader_default,
+  useBreakpoint: () => useBreakpoint_default
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -406,9 +407,50 @@ var SquareLoader = () => {
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "loader-wrapper", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "loader-grid", children: Array.from({ length: 9 }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: `square square-${i + 1}` }, i)) }) });
 };
 var SquareLoader_default = SquareLoader;
+
+// src/hooks/useBreakpoint.tsx
+var import_react2 = require("react");
+var breakpoints = {
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  xxl: 1600
+};
+var useBreakpoint = () => {
+  const [width, setWidth] = (0, import_react2.useState)(void 0);
+  (0, import_react2.useEffect)(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  if (width === void 0) {
+    return { width: 0, breakpoint: "xs", gutterpoint: 10 };
+  }
+  const breakpoint = (() => {
+    if (width < breakpoints.sm) return "xs";
+    if (width < breakpoints.md) return "sm";
+    if (width < breakpoints.lg) return "md";
+    if (width < breakpoints.xl) return "lg";
+    if (width < breakpoints.xxl) return "xl";
+    return "xxl";
+  })();
+  const gutterpoint = (() => {
+    if (width < breakpoints.sm) return 10;
+    if (width < breakpoints.md) return 15;
+    if (width < breakpoints.lg) return 20;
+    if (width < breakpoints.xl) return 25;
+    if (width < breakpoints.xxl) return 30;
+    return 30;
+  })();
+  return { width, breakpoint, gutterpoint };
+};
+var useBreakpoint_default = useBreakpoint;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   CommonAvatar,
   NewsCard,
-  SquareLoader
+  SquareLoader,
+  useBreakpoint
 });

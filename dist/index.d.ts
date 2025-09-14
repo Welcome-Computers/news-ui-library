@@ -18,4 +18,10 @@ declare const CommonAvatar: React.FC<CommonAvatarProps>;
 
 declare const SquareLoader: React.FC;
 
-export { CommonAvatar, NewsCard, SquareLoader };
+declare const useBreakpoint: () => {
+    width: number;
+    breakpoint: string;
+    gutterpoint: number;
+};
+
+export { CommonAvatar, NewsCard, SquareLoader, useBreakpoint };

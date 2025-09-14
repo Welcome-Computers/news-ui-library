@@ -167,7 +167,10 @@ import "news-ui-library/dist/components/NewsCard.css";
 
 
 ---------------------------
+
 for > github making changes
+
+change the version in package.json
 
 git branch
 
