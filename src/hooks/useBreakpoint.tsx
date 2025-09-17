@@ -9,7 +9,7 @@ const breakpoints = {
     xxl: 1600,
 };
 
-const useBreakpoint = () => {
+export function useBreakpoint(){
     // Initial state should be undefined until the component mounts on the client side
     const [width, setWidth] = useState<number | undefined>(undefined);
 
@@ -49,5 +49,3 @@ const useBreakpoint = () => {
 
     return { width, breakpoint, gutterpoint };
 };
-
-export default useBreakpoint;

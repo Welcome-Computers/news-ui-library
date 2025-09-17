@@ -22,7 +22,10 @@ __export(index_exports, {
   CommonAvatar: () => CommonAvatar_default2,
   NewsCard: () => NewsCard_default2,
   SquareLoader: () => SquareLoader_default,
-  useBreakpoint: () => useBreakpoint_default
+  extractIdFromSlug: () => extractIdFromSlug,
+  getFullName: () => getFullName,
+  getSFullName: () => getSFullName,
+  useBreakpoint: () => useBreakpoint
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -70,9 +73,22 @@ var CommonAvatar_default = CommonAvatar;
 var import_antd2 = require("antd");
 
 // src/util/helper.ts
+var getFullName = (value) => {
+  const fullname = [value?.first_name, value?.second_name, value?.last_name].filter(Boolean).join(" ");
+  return fullname;
+};
 var getSFullName = (value) => {
   const fullname = [value?.first_name, value?.second_name].filter(Boolean).join(" ");
   return fullname;
+};
+var extractIdFromSlug = (slugAndId) => {
+  if (typeof slugAndId !== "string" || !slugAndId.trim()) {
+    return null;
+  }
+  const parts = slugAndId.split("-");
+  const lastPart = parts[parts.length - 1];
+  const id = Number(lastPart);
+  return isNaN(id) ? null : id;
 };
 
 // src/components/NewsCard/NewsCard.tsx
@@ -417,7 +433,7 @@ var breakpoints = {
   xl: 1200,
   xxl: 1600
 };
-var useBreakpoint = () => {
+function useBreakpoint() {
   const [width, setWidth] = (0, import_react2.useState)(void 0);
   (0, import_react2.useEffect)(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -445,12 +461,14 @@ var useBreakpoint = () => {
     return 30;
   })();
   return { width, breakpoint, gutterpoint };
-};
-var useBreakpoint_default = useBreakpoint;
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   CommonAvatar,
   NewsCard,
   SquareLoader,
+  extractIdFromSlug,
+  getFullName,
+  getSFullName,
   useBreakpoint
 });

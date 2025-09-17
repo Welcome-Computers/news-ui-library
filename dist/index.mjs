@@ -1,3 +1,12 @@
+import {
+  useBreakpoint
+} from "./chunk-XWIVVFUA.mjs";
+import {
+  extractIdFromSlug,
+  getFullName,
+  getSFullName
+} from "./chunk-NI3E3L34.mjs";
+
 // src/components/CommonAvatar/CommonAvatar.tsx
 import { Avatar, Image } from "antd";
 import { useState } from "react";
@@ -40,14 +49,6 @@ var CommonAvatar_default = CommonAvatar;
 
 // src/components/NewsCard/NewsCard.tsx
 import { Card, Image as Image2, Tag } from "antd";
-
-// src/util/helper.ts
-var getSFullName = (value) => {
-  const fullname = [value?.first_name, value?.second_name].filter(Boolean).join(" ");
-  return fullname;
-};
-
-// src/components/NewsCard/NewsCard.tsx
 import { Typography } from "antd";
 import { jsx as jsx2, jsxs } from "react/jsx-runtime";
 var { Title } = Typography;
@@ -379,49 +380,12 @@ var SquareLoader = () => {
   return /* @__PURE__ */ jsx3("div", { className: "loader-wrapper", children: /* @__PURE__ */ jsx3("div", { className: "loader-grid", children: Array.from({ length: 9 }).map((_, i) => /* @__PURE__ */ jsx3("div", { className: `square square-${i + 1}` }, i)) }) });
 };
 var SquareLoader_default = SquareLoader;
-
-// src/hooks/useBreakpoint.tsx
-import { useEffect, useState as useState2 } from "react";
-var breakpoints = {
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1200,
-  xxl: 1600
-};
-var useBreakpoint = () => {
-  const [width, setWidth] = useState2(void 0);
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  if (width === void 0) {
-    return { width: 0, breakpoint: "xs", gutterpoint: 10 };
-  }
-  const breakpoint = (() => {
-    if (width < breakpoints.sm) return "xs";
-    if (width < breakpoints.md) return "sm";
-    if (width < breakpoints.lg) return "md";
-    if (width < breakpoints.xl) return "lg";
-    if (width < breakpoints.xxl) return "xl";
-    return "xxl";
-  })();
-  const gutterpoint = (() => {
-    if (width < breakpoints.sm) return 10;
-    if (width < breakpoints.md) return 15;
-    if (width < breakpoints.lg) return 20;
-    if (width < breakpoints.xl) return 25;
-    if (width < breakpoints.xxl) return 30;
-    return 30;
-  })();
-  return { width, breakpoint, gutterpoint };
-};
-var useBreakpoint_default = useBreakpoint;
 export {
   CommonAvatar_default2 as CommonAvatar,
   NewsCard_default2 as NewsCard,
   SquareLoader_default as SquareLoader,
-  useBreakpoint_default as useBreakpoint
+  extractIdFromSlug,
+  getFullName,
+  getSFullName,
+  useBreakpoint
 };

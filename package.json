@@ -4,12 +4,14 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build:ts": "tsup src/index.ts --format cjs,esm --dts --out-dir dist --clean",
+    "build:ts": "tsup --clean",
     "build:css": "sass src:dist --no-source-map",
     "build": "pnpm build:ts && pnpm build:css",
-    "build:watch": "tsup src/index.ts --format cjs,esm --dts --out-dir dist --watch",
+    "build:watch": "tsup --watch",
     "prepare": "pnpm build",
     "prepublishOnly": "pnpm build"
   },
