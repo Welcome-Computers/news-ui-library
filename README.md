@@ -110,6 +110,9 @@ git push origin main
 
 pnpm add github:Welcome-Computers/news-ui-library
 
+pnpm update news-ui-library
+pnpm up github:Welcome-Computers/news-ui-library
+
 ------------------------
 
 

@@ -37,7 +37,7 @@ export function useBreakpoint(){
         if (width < breakpoints.xxl) return "xl";       // 1200 - 1599px
         return "xxl";                                   // ≥1600px
     })();
-
+    
     const gutterpoint = (() => {
         if (width < breakpoints.sm) return 10;        // <576px
         if (width < breakpoints.md) return 15;        // 576 - 767px
@@ -46,6 +46,10 @@ export function useBreakpoint(){
         if (width < breakpoints.xxl) return 30;       // 1200 - 1599px
         return 30;                                    // ≥1600px
     })();
+   
+    const is_mobile = width < breakpoints.md;                  // true if < 768
+    
+    const is_laptop = width >= breakpoints.md && width < breakpoints.lg; // true if 768–991
 
-    return { width, breakpoint, gutterpoint };
+    return { width, breakpoint, gutterpoint, is_mobile, is_laptop };
 };

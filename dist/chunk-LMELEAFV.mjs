@@ -34,7 +34,9 @@ function useBreakpoint() {
     if (width < breakpoints.xxl) return 30;
     return 30;
   })();
-  return { width, breakpoint, gutterpoint };
+  const is_mobile = width < breakpoints.md;
+  const is_laptop = width >= breakpoints.md && width < breakpoints.lg;
+  return { width, breakpoint, gutterpoint, is_mobile, is_laptop };
 }
 
 export {
