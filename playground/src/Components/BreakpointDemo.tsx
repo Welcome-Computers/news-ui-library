@@ -11,19 +11,22 @@ import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 const { Panel } = Collapse;
 
 const BreakpointDemo: React.FC = () => {
-  const { width, breakpoint, gutterpoint } = useBreakpoint();
+  const { width, breakpoint, gutterpoint, is_mobile, is_tab, is_laptop } = useBreakpoint();
 
   const codeString = `
 import { useBreakpoint } from 'news-ui-library';
 
 const Demo = () => {
-  const { width, breakpoint, gutterpoint } = useBreakpoint();
+  const { width, breakpoint, gutterpoint, is_mobile, , is_tab, is_laptop } = useBreakpoint();
 
   return (
     <div>
       <p>Width: {width}px</p>
       <p>Breakpoint: {breakpoint}</p>
       <p>Gutter: {gutterpoint}px</p>
+      <p>is_mobile : {is_mobile} [true if < 768]</p>
+      <p>is_tab : {is_laptop} [true if 768–991]</p>
+      <p>is_laptop : {is_laptop} [true if 992–1199]</p>
     </div>
   );
 };
@@ -43,6 +46,15 @@ export default Demo;
           </p>
           <p>
             <strong>Gutter:</strong> <Tag color="purple">{gutterpoint}px</Tag>
+          </p>
+          <p>
+            <strong>is_mobile:</strong> <Tag color="purple">{is_mobile}</Tag>
+          </p>
+          <p>
+            <strong>is_tab:</strong> <Tag color="purple">{is_tab}</Tag>
+          </p>
+          <p>
+            <strong>is_laptop:</strong> <Tag color="purple">{is_laptop}</Tag>
           </p>
           <p style={{ marginTop: 10, fontSize: 12, color: "#888" }}>
             Resize your browser window to see values change 👆

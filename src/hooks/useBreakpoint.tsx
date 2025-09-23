@@ -47,9 +47,15 @@ export function useBreakpoint(){
         return 30;                                    // ≥1600px
     })();
    
-    const is_mobile = width < breakpoints.md;                  // true if < 768
     
-    const is_laptop = width >= breakpoints.md && width < breakpoints.lg; // true if 768–991
+    
+    const is_mobile = width < breakpoints.md;                               // true if < 768
 
-    return { width, breakpoint, gutterpoint, is_mobile, is_laptop };
+    const is_tab = width >= breakpoints.md && width < breakpoints.lg;       // true if 768–991
+
+    const is_laptop = width >= breakpoints.lg && width < breakpoints.xl;    // true if 768–1199
+
+
+
+    return { width, breakpoint, gutterpoint, is_mobile, is_tab, is_laptop };
 };
