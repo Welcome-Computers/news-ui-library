@@ -1,7 +1,5 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import React from 'react';
-export { useBreakpoint } from './hooks/useBreakpoint.js';
-export { extractIdFromSlug, getFullName, getSFullName } from './util/helper.js';
 
 interface iProps {
     item: any;
@@ -20,4 +18,26 @@ declare const CommonAvatar: React.FC<CommonAvatarProps>;
 
 declare const SquareLoader: React.FC;
 
-export { CommonAvatar, NewsCard, SquareLoader };
+declare function useBreakpoint(): {
+    width: number;
+    breakpoint: string;
+    gutterpoint: number;
+    height?: undefined;
+    is_mobile?: undefined;
+    is_tab?: undefined;
+    is_laptop?: undefined;
+} | {
+    width: number;
+    height: number;
+    breakpoint: string;
+    gutterpoint: number;
+    is_mobile: boolean;
+    is_tab: boolean;
+    is_laptop: boolean;
+};
+
+declare const getFullName: (value: any) => string;
+declare const getSFullName: (value: any) => string;
+declare const extractIdFromSlug: (slugAndId: unknown) => number | null;
+
+export { CommonAvatar, NewsCard, SquareLoader, extractIdFromSlug, getFullName, getSFullName, useBreakpoint };

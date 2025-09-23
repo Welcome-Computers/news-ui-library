@@ -168,9 +168,18 @@ git push origin main
 ```
 
 ```bash
+# for > package to npm frist time
+open an account in npm [https://www.npmjs.com/]
+npm login
+npm whoami // check you are in or not.
+npm publish --access public
+```
+
+```bash
 # for > package to npm
 pnpm build
 npm version patch -m "fix: improved logo fallback"
 git push origin main --tags
 npm publish --access public
 ```
+
