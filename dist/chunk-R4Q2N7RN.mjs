@@ -9,9 +9,14 @@ var breakpoints = {
 };
 function useBreakpoint() {
   const [width, setWidth] = useState(void 0);
+  const [height, setHeight] = useState(void 0);
   useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    };
     setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -35,8 +40,9 @@ function useBreakpoint() {
     return 30;
   })();
   const is_mobile = width < breakpoints.md;
-  const is_laptop = width >= breakpoints.md && width < breakpoints.lg;
-  return { width, breakpoint, gutterpoint, is_mobile, is_laptop };
+  const is_tab = width >= breakpoints.md && width < breakpoints.lg;
+  const is_laptop = width >= breakpoints.lg && width < breakpoints.xl;
+  return { width, height, breakpoint, gutterpoint, is_mobile, is_tab, is_laptop };
 }
 
 export {
