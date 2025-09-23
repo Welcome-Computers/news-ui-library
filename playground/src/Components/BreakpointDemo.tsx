@@ -11,7 +11,7 @@ import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 const { Panel } = Collapse;
 
 const BreakpointDemo: React.FC = () => {
-  const { width, breakpoint, gutterpoint, is_mobile, is_tab, is_laptop } = useBreakpoint();
+  const { width, height, breakpoint, gutterpoint, is_mobile, is_tab, is_laptop } = useBreakpoint();
 
   const codeString = `
 import { useBreakpoint } from 'news-ui-library';
@@ -22,6 +22,7 @@ const Demo = () => {
   return (
     <div>
       <p>Width: {width}px</p>
+      <p>height: {height}px</p>
       <p>Breakpoint: {breakpoint}</p>
       <p>Gutter: {gutterpoint}px</p>
       <p>is_mobile : {is_mobile} [true if < 768]</p>
@@ -40,6 +41,9 @@ export default Demo;
         <div style={{ padding: 20, border: "1px solid #eee", borderRadius: 8 }}>
           <p>
             <strong>Width:</strong> <Tag color="blue">{width}px</Tag>
+          </p>
+          <p>
+            <strong>Height:</strong> <Tag color="blue">{height}px</Tag>
           </p>
           <p>
             <strong>Breakpoint:</strong> <Tag color="green">{breakpoint}</Tag>

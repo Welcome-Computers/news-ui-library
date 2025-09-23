@@ -12,12 +12,18 @@ const breakpoints = {
 export function useBreakpoint(){
     // Initial state should be undefined until the component mounts on the client side
     const [width, setWidth] = useState<number | undefined>(undefined);
+    const [height, setHeight] = useState<number | undefined>(undefined);
+
 
     useEffect(() => {
-        const handleResize = () => setWidth(window.innerWidth);
+        const handleResize = () => {
+            setWidth(window.innerWidth)
+            setHeight(window.innerHeight);
+        };
 
         // Set initial width once the component mounts
         setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
 
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -27,7 +33,7 @@ export function useBreakpoint(){
         // This prevents rendering while the width is still undefined (before the component has mounted)
         return { width: 0, breakpoint: "xs", gutterpoint: 10 };
     }
-
+    
     // Determine the active breakpoint and gutterpoint based on width
     const breakpoint = (() => {
         if (width < breakpoints.sm) return "xs";        // <576px
@@ -53,9 +59,9 @@ export function useBreakpoint(){
 
     const is_tab = width >= breakpoints.md && width < breakpoints.lg;       // true if 768–991
 
-    const is_laptop = width >= breakpoints.lg && width < breakpoints.xl;    // true if 768–1199
+    const is_laptop = width >= breakpoints.lg && width < breakpoints.xl;    // true if 992–1199
+    
 
 
-
-    return { width, breakpoint, gutterpoint, is_mobile, is_tab, is_laptop };
+    return { width, height, breakpoint, gutterpoint, is_mobile, is_tab, is_laptop };
 };
